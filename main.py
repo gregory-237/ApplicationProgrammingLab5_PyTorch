@@ -389,5 +389,9 @@ def build_baseline_model(df, test_ratio, target_col):
 df_baseline = build_baseline_model(df_timelags, 0.2, 'value')
 baseline_metrics = calculate_metrics(df_baseline)
 
-
-df_result.plot()
+plt.plot(df_result['value'], label='Course')
+plt.plot(df_result['prediction'], label='Prediction')
+plt.legend()
+plt.title("Result")
+plt.show()
+plt.close()
