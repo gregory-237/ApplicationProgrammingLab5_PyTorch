@@ -9,12 +9,9 @@ device = "cpu"
 
 
 df = pd.read_csv('dataset.csv', sep=',', names=['Datetime', 'value'])
-
 df = df.set_index(['Datetime'])
-df = df.rename(columns={'PJME_MW': 'value'})
 df.index = pd.to_datetime(df.index)
-if not df.index._join_monotonic:
-    df = df.sort_index()
+
 
 
 def generate_time_lags(df, n_lags):
